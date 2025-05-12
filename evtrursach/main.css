@@ -1,0 +1,327 @@
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: #FFEEE0;
+    margin: 0 auto; /* Центрирует body, если ширина ограничена */
+    padding: 0;
+    cursor: default;
+    width: 100%;
+    max-width: 1440px; 
+}   
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    background-color: rgba(68, 25, 1, 0.78);
+    padding: 10px 0;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-start;
+    padding-left: 20px;
+    text-decoration: none; /* Убираем подчеркивание */
+    color: white; /* Цвет текста */
+}
+
+.logo img {
+    height: 90px;
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    transition: all 0.3s ease-in-out; /* Плавная анимация */
+    display: inline-block; /* Чтобы эффект работал корректно */
+}
+
+.theme-buttons {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-right: 20px;
+}
+
+.theme-buttons button {
+    background-color: #FFEEE0;
+    border: 2px solid rgba(68, 25, 1, 0.78);
+    border-radius: 30px;
+    color: black;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    transition: 0.3s ease-in-out;
+}
+
+.theme-buttons button:hover  {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(30, 10, 0, 0.5);
+}
+
+nav a:hover, header span:hover, footer a:hover{
+    transform: scale(1.1);  
+    transition: 0.3s ease-in-out;
+}
+
+.content {
+    padding: 10px 20px; /* Уменьшаем внутренний отступ */
+    margin-top: -20px; /* Сдвигаем текст ближе к хедеру */
+}
+
+.intro-section {
+    text-align: left; /* Выровняем заголовок и текст влево */
+    margin-bottom: 10px;
+}
+
+.intro-section h1, .split-section h2 {
+    font-size: 34px;
+}
+
+.intro-section p, .split-section p {
+    font-size: 28px;
+}
+
+.split-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.split-section .text-container {
+    flex: 1;
+}
+
+.split-section img {
+    width: 100%; /* Картинка занимает всю ширину доступного блока */
+    max-width: 400px; /* Ограничиваем максимальную ширину, чтобы не было слишком маленькой */
+    height: auto; /* Сохраняем пропорции */
+    object-fit: cover; /* Заполняет блок, убирая сплющивание */
+    display: block;
+}
+
+.carousel {
+    width: 30%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-image {
+    width: 100%; /* Картинка занимает 30% ширины экрана */
+    height: auto; /* Авторазмер, чтобы не сплющивалась */
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    object-fit: contain; /* Убирает растягивание */
+    border-radius: 30px;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}
+
+footer {
+    background-color: rgba(68, 25, 1, 0.78);
+    color: white;
+    padding: 20px;
+    margin-top: -40px;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; /* Выравнивание элементов сверху */
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Выравнивание текста слева */
+}
+
+.footer-item p {
+    font-size: 24px;
+    margin: 5px 0;
+}   
+
+.light-theme {
+    background-color: #FFEEE0;
+    color: #000000;
+}
+
+.dark-theme {
+    background-color: #382C22;
+    color: #FFFFFF;
+}
+
+/* Стили для кнопок в зависимости от темы */
+.light-theme .theme-buttons button {
+    background-color: #FFEEE0;
+    color: rgba(68, 25, 1, 0.78);
+}
+
+.dark-theme .theme-buttons button {
+    background-color:rgba(255, 255, 255, 0.47);
+    color: #000000;
+}
+
+.dark-theme .menu-dropdown {
+    background-color:rgba(255, 255, 255);
+}
+.dark-theme .menu-dropdown a {
+    color:black;
+}
+
+@media (min-width: 769px) {
+    .menu-dropdown, .burger-menu {
+        display: none !important; /* Скрываем бургер-меню */
+    }
+}
+    
+@media (max-width: 768px) {
+/* Уменьшение размера текста при ширине <= 768px */
+    .intro-section h1, .split-section h2 {
+        font-size: 24px;
+    }
+
+.intro-section  {
+    margin-bottom: -50px;
+}
+
+.intro-section p, .split-section p, .footer-item p {
+    font-size: 20px;
+}
+
+#main-nav {
+    display: none; /* Скрываем обычное меню */
+}
+
+.burger-menu {
+    display: block; /* Показываем бургер-меню */
+    font-size: 30px;
+    padding: 10px;
+    background-color: #FFEEE0;
+    color: rgba(68, 25, 1, 0.78);
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.burger-menu:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(30, 10, 0, 0.5);
+    transition: 0.3s ease-in-out;
+}
+
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    background-color: rgba(68, 25, 1, 0.9);
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.menu-dropdown a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.menu-dropdown a:hover {
+    transform: scale(1.1);  
+    transition: 0.3s ease-in-out;
+}
+
+/* Центрирование блока кнопок между логотипом и бургер-меню */
+.theme-buttons {
+    display: flex;
+    flex-direction: column; /* Расположить кнопки друг над другом */
+    align-items: end; /* Выравнивание по центру */
+}
+
+.theme-buttons button {
+    font-size: 14px; /* Уменьшенный размер кнопок */
+    padding: 6px 12px;
+    width: 90px;
+    border-radius: 30px;
+    background-color: rgba(255, 238, 224, 0.9);
+    color: rgba(68, 25, 1, 0.78);
+    border: 2px solid rgba(68, 25, 1, 0.78);
+    transition: transform 0.3s ease-in-out;
+}
+}
+
+@media (max-width: 380px) {
+    .logo span {
+        display: none;
+}
+
+    /* Уменьшаем размер текста */
+    .intro-section h1, .split-section h2 {
+        font-size: 20px;
+    }
+
+    .intro-section {
+        margin-bottom: -50px;
+    }
+
+    .intro-section p, .split-section p, .footer-item p {
+        font-size: 16px;
+    }
+
+    /* Делаем карусель отдельным блоком под `intro-section` */
+    .carousel {
+        order: 2; /* Меняем порядок элементов */
+        width: 100%;
+        margin: -30px auto -100px ; /* Уменьшаем отступ до и после */
+        padding: 0; /* Убираем возможные внутренние отступы */
+    }
+
+    /* Размещаем текст ниже */
+    .split-section {
+        flex-direction: column; /* Делаем элементы вертикальными */
+        margin-bottom: 30px;
+    }
+
+    .text-container {
+        order: 3; /* Оставляем текст после карусели */
+    }
+
+    .footer-container {
+        display: flex;
+        flex-direction: column; /* Элементы теперь идут вертикально */
+        align-items: start; /* Центрируем содержимое */
+        gap: 15px; /* Добавляем отступ между элементами */
+    }
+}
